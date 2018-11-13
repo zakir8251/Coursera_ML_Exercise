@@ -20,13 +20,12 @@ p = zeros(size(X, 1), 1);
 %       information see 'help max'. If your examples are in rows, then, you
 %       can use max(A, [], 2) to obtain the max for each row.
 %
-
-
-a1 = [ones(m,1) X]; % Add column of 1 to feature matrix X%
-a2_ = sigmoid(Theta1*a1');
-a2 = [ones(1, size(a2_, 2)); a2_];
-a3 = sigmoid(Theta2*a2);
-[~, p] = max(a3', [], 2);
+a1 = [ones(m,1) X]; % Add column of 1 to X%
+z2 = a1*Theta1'; % 500x401 * (25x401)' = 500x25% 
+a2 = sigmoid([ones(size(z2,1), 1) z2]); % Add column of 1 to z2%
+z3 = a2*Theta2'; % 500x26 * (10x26)' = 500x10% 
+a3 = sigmoid(z3); % No bias unit for last layer
+[~, p] = max(a3, [], 2);
 
 % =========================================================================
 
