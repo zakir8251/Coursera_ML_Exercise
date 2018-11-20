@@ -82,7 +82,7 @@ pause;
 %
 
 %  Train linear regression with lambda = 0
-lambda = 3;
+lambda = 0; %Later set lambda = 3 here when Jtrain and Jcv meet for lambda = 3 (After part 8)
 [theta] = trainLinearReg([ones(m, 1) X], y, lambda);
 
 %  Plot fit over the data
